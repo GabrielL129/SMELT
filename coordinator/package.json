@@ -1,0 +1,32 @@
+{
+  "name": "smelt-coordinator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SMELT Protocol Coordinator — manages foundry zones, scrap challenges, smelting queue, epochs, and EIP-712 receipts",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.9.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "axios": "^1.6.0",
+    "uuid": "^9.0.0",
+    "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/uuid": "^9.0.7",
+    "@types/node-cron": "^3.0.11",
+    "@types/node": "^20",
+    "typescript": "^5",
+    "tsx": "^4.6.0"
+  }
+}

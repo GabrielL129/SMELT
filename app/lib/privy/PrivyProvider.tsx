@@ -1,0 +1,24 @@
+"use client";
+
+import { PrivyProvider } from "@privy-io/react-auth";
+
+export default function PrivyClientProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <PrivyProvider
+      appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID!}
+      config={{
+        appearance: {
+          theme: "dark",
+          accentColor: "#ff6b1a",
+          logo: undefined,
+        },
+        loginMethods: ["wallet"],
+        embeddedWallets: {
+          createOnLogin: "off",
+        },
+      }}
+    >
+      {children}
+    </PrivyProvider>
+  );
+}

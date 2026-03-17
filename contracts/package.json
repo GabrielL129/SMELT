@@ -1,0 +1,25 @@
+{
+  "name": "smelt-contracts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:token": "hardhat run scripts/deployToken.ts --network base",
+    "deploy:settlement": "hardhat run scripts/deploySettlement.ts --network base",
+    "deploy:local": "hardhat run scripts/deployToken.ts --network localhost && hardhat run scripts/deploySettlement.ts --network localhost",
+    "verify:token": "hardhat verify --network base",
+    "node": "hardhat node"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@types/node": "^20",
+    "hardhat": "^2.19.0",
+    "typescript": "^5",
+    "ts-node": "^10.9.0",
+    "dotenv": "^16.3.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0"
+  }
+}

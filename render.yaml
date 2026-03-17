@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: smelt-coordinator
+    runtime: node
+    rootDir: coordinator
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: COORDINATOR_PRIVATE_KEY
+        sync: false
+      - key: COORDINATOR_ADDRESS
+        sync: false
+      - key: SETTLEMENT_CONTRACT_ADDRESS
+        sync: false
+      - key: SMELT_TOKEN_ADDRESS
+        sync: false
+      - key: CHAIN_ID
+        value: "8453"
+      - key: RPC_URL
+        value: https://mainnet.base.org
+      - key: METALS_API_KEY
+        sync: false
+      - key: EPOCH_DURATION_SECONDS
+        value: "86400"
+      - key: AUTH_TOKEN_TTL
+        value: "3600"
+      - key: ALLOWED_ORIGINS
+        value: https://smelt.world,https://app.smelt.world

@@ -1,0 +1,304 @@
+.lore {
+  background: var(--color-charcoal);
+  padding: var(--space-16) var(--space-8);
+  border-top: var(--border-dim);
+  border-bottom: var(--border-dim);
+  overflow: hidden;
+}
+
+.container { max-width: 1100px; margin: 0 auto; }
+
+.header { margin-bottom: var(--space-12); }
+
+.sectionTag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--color-furnace);
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 4vw, 40px);
+  font-weight: 900;
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  margin-bottom: var(--space-12);
+}
+
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.body {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--color-ash);
+}
+
+/* ANIMATED FURNACE */
+.furnaceAnim {
+  position: relative;
+  height: 120px;
+  margin-top: var(--space-4);
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+}
+
+.furnaceBody {
+  width: 80px;
+  height: 90px;
+  background: var(--color-steel-dark);
+  border: 1px solid var(--color-steel-mid);
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(255,107,26,0.15);
+}
+
+.furnaceDoor {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 30px;
+  background: #080808;
+  border: 1px solid #333;
+  border-radius: 2px 2px 0 0;
+  overflow: hidden;
+}
+
+.furnaceDoorGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(255,107,26,0.8) 0%, transparent 70%);
+  animation: doorFlicker 0.8s ease-in-out infinite alternate;
+}
+
+.furnaceDoorGlow2 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 80%, rgba(255,51,0,0.4) 0%, transparent 60%);
+  animation: doorFlicker2 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes doorFlicker {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+@keyframes doorFlicker2 {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.8; }
+}
+
+.furnaceVents {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.vent {
+  width: 30px;
+  height: 3px;
+  background: var(--color-steel);
+}
+
+.furnaceLabel {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+  white-space: nowrap;
+}
+
+.smokeCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  height: 90px;
+  padding-bottom: 10px;
+}
+
+.smokeParticle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(80,80,80,0.6);
+  animation: smokeFloat 2.5s ease-out infinite;
+}
+
+@keyframes smokeFloat {
+  0% { transform: translateY(0) scale(0.6); opacity: 0.8; }
+  100% { transform: translateY(-50px) scale(2); opacity: 0; }
+}
+
+.heatWaves {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 80px;
+  height: 30px;
+  overflow: hidden;
+}
+
+.heatWave {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,107,26,0.3), transparent);
+  animation: waveMove 1.5s linear infinite;
+}
+
+@keyframes waveMove {
+  0% { transform: translateY(30px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-10px); opacity: 0; }
+}
+
+/* CYCLE PANEL */
+.cyclePanel {
+  background: var(--color-steel-dark);
+  border: var(--border-steel);
+  padding: var(--space-6);
+}
+
+.cyclePanelHeader {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-iron);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: var(--border-dim);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.cycleSteps { display: flex; flex-direction: column; }
+
+/* Step — animate in on scroll */
+.step {
+  display: flex;
+  gap: var(--space-3);
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.stepVisible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.stepLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.stepNum {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-furnace);
+  width: 28px;
+  text-align: center;
+}
+
+.stepLine {
+  width: 1px;
+  flex: 1;
+  min-height: 20px;
+  background: linear-gradient(to bottom, var(--color-furnace-dim), transparent);
+  margin: 4px 0;
+}
+
+.stepContent {
+  flex: 1;
+  padding-bottom: var(--space-4);
+}
+
+.stepTitleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: 3px;
+}
+
+.stepIcon { color: var(--color-furnace); flex-shrink: 0; }
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-white);
+}
+
+.stepDesc {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-iron);
+  line-height: 1.6;
+}
+
+/* QUOTE */
+.loreQuote {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: rgba(255,107,26,0.04);
+  border-left: 2px solid var(--color-furnace-dim);
+}
+
+.loreQuoteBar {
+  width: 40px;
+  height: 2px;
+  background: var(--color-furnace);
+}
+
+.loreQuoteText {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-smoke);
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+
+.loreQuoteSource {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--color-iron);
+}
