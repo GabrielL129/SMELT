@@ -1,0 +1,210 @@
+.panel {
+  background: var(--color-steel-dark);
+  border: var(--border-steel);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-dim);
+  background: var(--color-carbon);
+}
+
+.headerTitle {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-ash);
+}
+
+.headerStatus {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  padding: 2px 6px;
+  border: 1px solid var(--color-steel);
+  color: var(--color-iron);
+}
+
+.status_running {
+  color: var(--color-furnace) !important;
+  border-color: rgba(255,107,26,0.4) !important;
+  background: rgba(255,107,26,0.06);
+  animation: runningPulse 2s ease-in-out infinite;
+}
+
+.status_pending { color: var(--color-amber) !important; border-color: rgba(255,183,0,0.3) !important; }
+.status_completed { color: var(--color-green) !important; border-color: rgba(57,255,20,0.3) !important; }
+.status_failed { color: var(--color-red) !important; border-color: rgba(255,32,32,0.3) !important; }
+
+@keyframes runningPulse {
+  0%, 100% { border-color: rgba(255,107,26,0.3); }
+  50% { border-color: rgba(255,107,26,0.7); }
+}
+
+.empty {
+  padding: var(--space-8) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.emptyText {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--color-iron);
+}
+
+.emptySubtext {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--color-steel-light);
+}
+
+.body {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.batchId {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.batchCode {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--color-furnace);
+  letter-spacing: 0.08em;
+}
+
+.batchOrigin {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+}
+
+/* PROGRESS */
+.progressSection {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progressLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+}
+
+.progressPct {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-furnace);
+}
+
+.progressTrack {
+  height: 6px;
+  background: var(--color-steel);
+  position: relative;
+  overflow: visible;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(to right, var(--color-furnace-dim), var(--color-furnace));
+  transition: width 1s linear;
+  position: relative;
+}
+
+.progressGlow {
+  position: absolute;
+  top: -2px;
+  width: 4px;
+  height: 10px;
+  background: var(--color-furnace-bright);
+  box-shadow: 0 0 8px var(--color-furnace), 0 0 16px var(--color-furnace);
+  transform: translateX(-2px);
+  transition: left 1s linear;
+}
+
+/* STATS */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.04em;
+}
+
+.statUnit {
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--color-iron);
+  margin-left: 2px;
+}
+
+.statAccent { color: var(--color-furnace) !important; }
+.statWarn { color: var(--color-amber) !important; }
+
+/* ETA */
+.etaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) var(--space-3);
+  background: var(--color-carbon);
+  border: var(--border-dim);
+}
+
+.etaLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+}
+
+.etaValue {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-amber);
+  letter-spacing: 0.08em;
+}

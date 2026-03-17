@@ -1,0 +1,462 @@
+.scene {
+  position: relative;
+  background: var(--color-steel-dark);
+  border: var(--border-steel);
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ambientGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 65% 60%, rgba(255, 107, 26, 0.25) 0%, transparent 60%);
+  pointer-events: none;
+  transition: opacity 1s;
+}
+
+.sceneHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-dim);
+  background: var(--color-carbon);
+}
+
+.sceneLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--color-iron);
+}
+
+.sceneLive {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--color-green);
+}
+
+.sceneLiveDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-green);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.sceneMain {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: var(--space-6) var(--space-8) 0;
+  position: relative;
+}
+
+/* CONVEYOR */
+.conveyorLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: 8px;
+}
+
+.conveyorLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--color-iron);
+}
+
+.conveyorTrack {
+  width: 80px;
+  height: 40px;
+  background: var(--color-carbon);
+  border: var(--border-dim);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.conveyorBelt {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-steel) 0, var(--color-steel) 8px,
+    var(--color-steel-mid) 8px, var(--color-steel-mid) 16px
+  );
+  animation: conveyorMove 1.5s linear infinite;
+}
+
+@keyframes conveyorMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 16px 0; }
+}
+
+.scrapBlock {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  width: 22px;
+  height: 18px;
+  background: var(--color-steel);
+  border: 1px solid var(--color-steel-light);
+  animation: moveScrap 4s linear infinite;
+}
+
+@keyframes moveScrap {
+  0% { left: -30px; }
+  100% { left: 90px; }
+}
+
+.scrapBlockSmall {
+  position: absolute;
+  bottom: 8px;
+  left: 50px;
+  width: 14px;
+  height: 12px;
+  background: var(--color-steel-mid);
+  border: 1px solid var(--color-steel-light);
+  animation: moveScrap 4s linear 2s infinite;
+}
+
+/* ROBOT */
+.robotContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.robotSvg {
+  width: 100px;
+  height: 150px;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 26, 0.2));
+}
+
+.robotActive {
+  filter: drop-shadow(0 0 12px rgba(255, 107, 26, 0.4));
+}
+
+.robotAlert {
+  filter: drop-shadow(0 0 12px rgba(255, 32, 32, 0.5));
+  animation: alertShake 0.5s ease-in-out infinite;
+}
+
+@keyframes alertShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.robotPlatform {
+  width: 80px;
+  height: 6px;
+  background: var(--color-steel);
+  border: 1px solid var(--color-steel-mid);
+}
+
+.robotLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: var(--space-2);
+}
+
+.robotName {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-white);
+}
+
+.robotState {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--color-furnace);
+}
+
+/* Robot animations */
+.armLeft {
+  transform-origin: 17px 76px;
+  animation: swingLeft 1.5s ease-in-out infinite;
+}
+
+.armRight {
+  transform-origin: 103px 76px;
+  animation: swingRight 1.5s ease-in-out infinite;
+}
+
+@keyframes swingLeft {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(12deg); }
+}
+
+@keyframes swingRight {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-12deg); }
+}
+
+.corePulse {
+  animation: corePulse 1s ease-in-out infinite;
+}
+
+@keyframes corePulse {
+  0%, 100% { opacity: 1; r: 4; }
+  50% { opacity: 0.6; r: 5; }
+}
+
+.eyeGlow {
+  animation: eyeGlow 2s ease-in-out infinite;
+}
+
+@keyframes eyeGlow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.eyePupil {
+  animation: eyeMove 3s ease-in-out infinite;
+}
+
+@keyframes eyeMove {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(2px); }
+}
+
+.antennaPulse {
+  animation: antennaPulse 2s ease-in-out infinite;
+}
+
+@keyframes antennaPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.antennaAlert {
+  animation: antennaAlert 0.5s ease-in-out infinite;
+}
+
+@keyframes antennaAlert {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.scanBeam {
+  animation: scanBeam 1.5s ease-in-out infinite;
+}
+
+@keyframes scanBeam {
+  0% { transform: translateY(0); opacity: 0.8; }
+  100% { transform: translateY(16px); opacity: 0; }
+}
+
+.particle1 {
+  animation: floatParticle 2s ease-out infinite;
+}
+.particle2 {
+  animation: floatParticle 2.4s ease-out 0.5s infinite;
+}
+.particle3 {
+  animation: floatParticle 1.8s ease-out 1s infinite;
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(0); opacity: 0.8; }
+  100% { transform: translateY(-30px); opacity: 0; }
+}
+
+/* FURNACE */
+.furnaceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  margin-bottom: 8px;
+}
+
+.furnaceLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--color-iron);
+}
+
+.furnace {
+  width: 72px;
+  height: 90px;
+  background: var(--color-carbon);
+  border: 1px solid var(--color-steel-mid);
+  position: relative;
+  overflow: visible;
+  transition: box-shadow 0.5s;
+}
+
+.furnaceHot {
+  box-shadow: 0 0 20px rgba(255, 107, 26, 0.3), 0 0 40px rgba(255, 107, 26, 0.1);
+  border-color: rgba(255, 107, 26, 0.4);
+}
+
+.furnaceDoor {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 28px;
+  background: #111;
+  border: 1px solid var(--color-steel-mid);
+  border-radius: 2px 2px 0 0;
+  overflow: hidden;
+}
+
+.furnaceDoorGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(255, 107, 26, 0.6) 0%, transparent 70%);
+  animation: doorGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes doorGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.furnaceTempBar {
+  position: absolute;
+  left: 4px;
+  bottom: 0;
+  top: 0;
+  width: 6px;
+  background: var(--color-steel);
+}
+
+.furnaceTempFill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, var(--color-thermal), var(--color-furnace), var(--color-amber));
+  transition: height 1s;
+}
+
+.furnaceStack {
+  position: absolute;
+  top: -30px;
+  right: 10px;
+  width: 16px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 2px;
+}
+
+.smoke1, .smoke2, .smoke3 {
+  border-radius: 50%;
+  background: rgba(80, 80, 80, 0.5);
+  width: 8px;
+  height: 8px;
+}
+
+.smoke1 {
+  animation: smokeRise 2s ease-out infinite;
+}
+.smoke2 {
+  animation: smokeRise 2s ease-out 0.6s infinite;
+  width: 10px; height: 10px;
+}
+.smoke3 {
+  animation: smokeRise 2s ease-out 1.2s infinite;
+  width: 12px; height: 12px;
+}
+
+@keyframes smokeRise {
+  0% { transform: translateY(0) scale(0.5); opacity: 0.7; }
+  100% { transform: translateY(-20px) scale(1.5); opacity: 0; }
+}
+
+.furnaceTemp {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-furnace);
+  letter-spacing: 0.05em;
+}
+
+/* FLOOR */
+.floor {
+  height: 12px;
+  position: relative;
+  margin: 0 var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.floorLine {
+  height: 2px;
+  background: var(--color-steel);
+}
+
+.floorGlow {
+  height: 8px;
+  background: linear-gradient(to bottom, rgba(255, 107, 26, 0.06), transparent);
+}
+
+/* STATE BADGE */
+.stateBadge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+  border-top: var(--border-dim);
+  background: var(--color-carbon);
+}
+
+.stateBadgeText {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+}
+
+.state_idle { color: var(--color-iron); }
+.state_scanning { color: var(--color-blue-cold); }
+.state_hauling { color: var(--color-amber); }
+.state_smelting { color: var(--color-furnace); }
+.state_purging { color: var(--color-amber); }
+.state_repairing { color: var(--color-amber); }
+.state_overheated { color: var(--color-red); animation: blinkRed 0.8s ease-in-out infinite; }
+.state_alert { color: var(--color-red); animation: blinkRed 0.8s ease-in-out infinite; }
+
+@keyframes blinkRed {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.stateBadgeMode {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+}

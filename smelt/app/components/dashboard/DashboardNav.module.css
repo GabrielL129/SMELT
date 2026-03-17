@@ -1,0 +1,192 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-5);
+  height: 52px;
+  background: var(--color-charcoal);
+  border-bottom: var(--border-steel);
+  flex-shrink: 0;
+  gap: var(--space-4);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--color-furnace);
+  letter-spacing: 0.12em;
+  text-shadow: var(--glow-furnace);
+  flex-shrink: 0;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: var(--color-steel);
+}
+
+.foundryInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.foundryName {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+}
+
+.foundryStatus {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+}
+
+.statusDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.dot_active {
+  background: var(--color-green);
+  box-shadow: var(--glow-green);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.dot_idle { background: var(--color-iron); }
+.dot_overheated { background: var(--color-red); box-shadow: var(--glow-red); }
+.dot_offline { background: var(--color-steel-light); }
+.dot_maintenance { background: var(--color-amber); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.agentBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-1) var(--space-4);
+  border: var(--border-steel);
+  background: rgba(26, 26, 26, 0.8);
+}
+
+.agentState {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  padding: 2px 6px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.agentState_furnace {
+  color: var(--color-furnace);
+  border-color: rgba(255, 107, 26, 0.4);
+  background: rgba(255, 107, 26, 0.08);
+}
+.agentState_green {
+  color: var(--color-green);
+  border-color: rgba(57, 255, 20, 0.4);
+}
+.agentState_amber {
+  color: var(--color-amber);
+  border-color: rgba(255, 183, 0, 0.4);
+}
+.agentState_red {
+  color: var(--color-red);
+  border-color: rgba(255, 32, 32, 0.4);
+  animation: alertPulse 1s ease-in-out infinite;
+}
+.agentState_blue {
+  color: var(--color-blue-cold);
+  border-color: rgba(68, 136, 255, 0.4);
+}
+.agentState_dim {
+  color: var(--color-iron);
+  border-color: var(--color-steel);
+}
+
+@keyframes alertPulse {
+  0%, 100% { background: rgba(255, 32, 32, 0.08); }
+  50% { background: rgba(255, 32, 32, 0.2); }
+}
+
+.agentName {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+}
+
+.agentMode {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.walletBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--color-ash);
+}
+
+.walletIcon {
+  color: var(--color-furnace);
+  font-size: 11px;
+}
+
+.walletAddr {
+  color: var(--color-smoke);
+}
+
+.logoutBtn {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+  background: none;
+  border: var(--border-dim);
+  padding: var(--space-1) var(--space-3);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.logoutBtn:hover {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}

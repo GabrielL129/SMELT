@@ -1,0 +1,14 @@
+{
+  "name": "smelt-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SMELT Protocol — Autonomous Foundry. Scrap in. Refined out.",
+  "scripts": {
+    "dev":               "cd app && npm run dev",
+    "build":             "cd app && npm run build",
+    "dev:coordinator":   "cd coordinator && npm run dev",
+    "build:contracts":   "cd contracts && npm run compile",
+    "deploy:token":      "cd contracts && npm run deploy:token",
+    "deploy:settlement": "cd contracts && npm run deploy:settlement"
+  }
+}

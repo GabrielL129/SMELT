@@ -1,0 +1,256 @@
+.panel {
+  background: var(--color-steel-dark);
+  border: var(--border-steel);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: var(--space-4);
+  border-bottom: var(--border-dim);
+  background: var(--color-carbon);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.agentIdent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.agentIconWrap {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,107,26,0.1);
+  border: 1px solid rgba(255,107,26,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.agentIcon {
+  font-size: 18px;
+  color: var(--color-furnace);
+  text-shadow: var(--glow-furnace);
+}
+
+.agentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.agentName {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+}
+
+.agentDesig {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+}
+
+.agentMetrics {
+  display: flex;
+  gap: var(--space-5);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.metricLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+}
+
+.metricValue {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.metricWarn { color: var(--color-amber) !important; }
+.metricCrit { color: var(--color-red) !important; }
+
+/* STATUS ROW */
+.statusRow {
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-dim);
+  gap: var(--space-5);
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.statusLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+}
+
+.statusValue {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.statusDivider {
+  width: 1px;
+  height: 16px;
+  background: var(--color-steel);
+}
+
+.state_idle { color: var(--color-iron); }
+.state_scanning { color: var(--color-blue-cold); }
+.state_hauling { color: var(--color-amber); }
+.state_smelting { color: var(--color-furnace); }
+.state_purging { color: var(--color-amber); }
+.state_repairing { color: var(--color-amber); }
+.state_overheated { color: var(--color-red); }
+.state_alert { color: var(--color-red); }
+.stateGreen { color: var(--color-green); }
+.stateAmber { color: var(--color-amber); }
+
+/* LAST ACTION */
+.lastAction {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-dim);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.lastActionLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--color-iron);
+}
+
+.lastActionText {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--color-smoke);
+}
+
+.lastActionTime {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: var(--color-steel-light);
+}
+
+/* MESSAGES */
+.messagesSection {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.messagesSectionLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--color-iron);
+  padding: var(--space-2) var(--space-4);
+  border-bottom: var(--border-dim);
+  background: var(--color-carbon);
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.message {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-dim);
+  align-items: flex-start;
+  position: relative;
+}
+
+.message:last-child { border-bottom: none; }
+
+.msg_dim { border-left: 2px solid var(--color-steel); }
+.msg_amber { border-left: 2px solid var(--color-amber-dim); background: rgba(255,183,0,0.03); }
+.msg_furnace { border-left: 2px solid var(--color-furnace-dim); background: rgba(255,107,26,0.03); }
+.msg_blue { border-left: 2px solid rgba(68,136,255,0.4); }
+
+.msgIcon {
+  font-size: 10px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  width: 14px;
+  text-align: center;
+}
+
+.msg_dim .msgIcon { color: var(--color-iron); }
+.msg_amber .msgIcon { color: var(--color-amber); }
+.msg_furnace .msgIcon { color: var(--color-furnace); }
+.msg_blue .msgIcon { color: var(--color-blue-cold); }
+
+.msgBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.msgType {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--color-steel-light);
+}
+
+.msgContent {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--color-ash);
+}
+
+.msgTime {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: var(--color-steel-light);
+}
+
+.claudeBadge {
+  font-family: var(--font-display);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-furnace);
+  border: 1px solid rgba(255,107,26,0.3);
+  padding: 1px 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}

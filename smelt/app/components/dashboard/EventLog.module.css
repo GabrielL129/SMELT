@@ -1,0 +1,102 @@
+.panel {
+  background: var(--color-steel-dark);
+  border: var(--border-steel);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-dim);
+  background: var(--color-carbon);
+}
+
+.headerTitle {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-ash);
+}
+
+.headerCount {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+}
+
+.events {
+  display: flex;
+  flex-direction: column;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.event {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-dim);
+  border-left: 2px solid transparent;
+  transition: background 0.1s;
+}
+
+.event:last-child { border-bottom: none; }
+.event:hover { background: rgba(255,255,255,0.02); }
+
+.sev_info  { border-left-color: var(--color-steel-mid); }
+.sev_warn  { border-left-color: var(--color-amber-dim); background: rgba(255,183,0,0.02); }
+.sev_crit  { border-left-color: var(--color-red); background: rgba(255,32,32,0.03); }
+
+.eventTime {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: var(--color-steel-light);
+  min-width: 24px;
+  padding-top: 2px;
+}
+
+.eventIcon {
+  font-size: 10px;
+  padding-top: 1px;
+  flex-shrink: 0;
+  width: 14px;
+  text-align: center;
+}
+
+.icon_info  { color: var(--color-iron); }
+.icon_warn  { color: var(--color-amber); }
+.icon_crit  { color: var(--color-red); animation: blink 1s ease-in-out infinite; }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.eventContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.eventType {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+}
+
+.type_info  { color: var(--color-steel-light); }
+.type_warn  { color: var(--color-amber); }
+.type_crit  { color: var(--color-red); }
+
+.eventMessage {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--color-ash);
+}

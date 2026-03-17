@@ -1,0 +1,247 @@
+.section {
+  background: var(--color-charcoal);
+  padding: var(--space-16) var(--space-8);
+  border-bottom: var(--border-dim);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: var(--space-8);
+}
+
+.sectionTag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--color-furnace);
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 4vw, 40px);
+  font-weight: 900;
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+}
+
+/* EVENT BANNER */
+.eventBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid rgba(255, 183, 0, 0.3);
+  background: rgba(255, 183, 0, 0.04);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.eventBannerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 200px;
+}
+
+.eventBadge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--color-amber);
+  border: 1px solid rgba(255, 183, 0, 0.4);
+  padding: 2px 6px;
+  display: inline-block;
+  width: fit-content;
+  animation: blinkBorder 2s ease-in-out infinite;
+}
+
+@keyframes blinkBorder {
+  0%, 100% { border-color: rgba(255, 183, 0, 0.4); }
+  50% { border-color: rgba(255, 183, 0, 0.8); }
+}
+
+.eventTitle {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-amber);
+  letter-spacing: 0.06em;
+}
+
+.eventDesc {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-ash);
+  line-height: 1.6;
+  flex: 1;
+  padding-top: 4px;
+}
+
+/* EPOCH ROW */
+.epochRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  background: var(--color-steel-dark);
+  border: var(--border-steel);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.epochLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--color-iron);
+}
+
+.epochNum {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--color-furnace);
+  line-height: 1;
+}
+
+.epochName {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+  flex: 1;
+}
+
+.epochPressure {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.epochPressureLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--color-iron);
+  white-space: nowrap;
+}
+
+.epochPressureBar {
+  width: 120px;
+  height: 4px;
+  background: var(--color-steel);
+  position: relative;
+  overflow: visible;
+}
+
+.epochPressureFill {
+  height: 100%;
+  background: linear-gradient(to right, var(--color-furnace-dim), var(--color-amber));
+}
+
+.epochPressureValue {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-amber);
+}
+
+/* STATS GRID */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--color-steel);
+  border: var(--border-steel);
+  margin-bottom: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.statCard {
+  background: var(--color-steel-dark);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.statCardLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--color-iron);
+}
+
+.statCardValue {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--color-white);
+  line-height: 1.1;
+}
+
+.statAccent {
+  color: var(--color-furnace) !important;
+}
+
+.statGreen {
+  color: var(--color-green) !important;
+}
+
+.statCardSub {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--color-steel-light);
+}
+
+.dataNote {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--color-steel-light);
+  text-align: center;
+}
+
+.statCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: var(--space-1);
+}
+
+.statCardIcon { color: var(--color-furnace-dim); }
+
+.statCardTick {
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-furnace-dim), transparent);
+  margin-top: var(--space-2);
+  animation: tickScan 3s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes tickScan {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.epochPressureGlow {
+  position: absolute;
+  top: -2px;
+  width: 3px;
+  height: 8px;
+  background: var(--color-amber);
+  box-shadow: 0 0 6px var(--color-amber);
+  transform: translateX(-1px);
+  transition: left 0.6s;
+}
